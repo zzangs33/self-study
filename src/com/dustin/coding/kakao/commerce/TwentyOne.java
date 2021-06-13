@@ -4,6 +4,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TwentyOne {
+    private int globalN;
+    private int[] cache;
+
     public static void main(String[] args) {
         TwentyOne twentyOne = new TwentyOne();
 
@@ -74,13 +77,6 @@ public class TwentyOne {
         }).count();
     }
 
-    private static class Product {
-        List<Integer> needs;
-    }
-
-    private int globalN;
-    private int[] cache;
-
     public int[] trainLine(int n, int[] passenger, int[][] train) {
         int[] answer = {};
         this.globalN = n;
@@ -125,6 +121,10 @@ public class TwentyOne {
         if (cached != 0) return cached;
 
         return 0;
+    }
+
+    private static class Product {
+        List<Integer> needs;
     }
 
     private static class Station {
