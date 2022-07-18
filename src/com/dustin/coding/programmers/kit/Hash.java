@@ -7,6 +7,10 @@ public class Hash {
     public static void main(String[] args) {
         Hash hash = new Hash();
 
+        System.out.println(hash.phoneketmon(new int[]{3, 1, 2, 3}));
+        System.out.println(hash.phoneketmon(new int[]{3, 3, 3, 2, 2, 4}));
+        System.out.println(hash.phoneketmon(new int[]{3, 3, 3, 2, 2, 2}));
+
         System.out.println(hash.theNotFinished(new String[]{"leo", "kiki", "eden"}, new String[]{"eden", "kiki"}));
         System.out.println(hash.theNotFinished(new String[]{"marina", "josipa", "nikola", "vinko", "filipa"}, new String[]{"josipa", "filipa", "marina", "nikola"}));
         System.out.println(hash.theNotFinished(new String[]{"mislav", "stanko", "mislav", "ana"}, new String[]{"stanko", "ana", "mislav"}));
@@ -19,6 +23,15 @@ public class Hash {
         System.out.println(hash.camouflage(new String[][]{{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}}));
 
         System.out.println(hash.bestAlbum(new String[]{"classic", "pop", "classic", "classic", "pop"}, new int[]{500, 600, 150, 800, 2500}));
+    }
+
+    public int phoneketmon(int[] nums) {
+        Map<Integer, Integer> dic = new HashMap<>();
+        for (int i : nums) {
+            Integer num = dic.get(i);
+            dic.put(i, num == null ? 1 : ++num);
+        }
+        return Math.min(dic.size(), nums.length / 2);
     }
 
     public String theNotFinished(String[] participant, String[] completion) {
